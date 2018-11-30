@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Punchbag</title>
+    <!-- development version, includes helpful console warnings -->
+   
+
+</head>
+<body>
+    <div id="vue-app">
+        <!-- bag image-->
+        <div id="bag" v-bind:class="{burst: ended}"></div>
+
+        <!--bag health -->
+        <div id="bag-health">
+            <div v-bind:style="{ width: health + '%'}"></div>
+        </div>
+
+        <!-- game controls-->
+
+        <div id="controls">
+            <button v-on:click="punch" v-show="!ended">Punch</button>
+            <button v-on:click="restart">Restart</button>
+        </div>
+    </div>
+    <style>
+        #bag{
+            width: 200px;
+            height: 500px;
+            margin: 0 auto;
+            background: url(img/bag.png) center no-repeat;
+            background-size: 80%;
+        }
+        #bag.burst{
+            background: url(img/bag-burst.png) center no-repeat;
+            background-size: 80%;
+        }
+        #bag-health{
+            width: 200px;
+            border: 2px solid #000;
+            margin: 0 auto 20px auto;
+        }
+        #bag-health div{
+            height: 20px;
+            background: crimson;
+        }
+        #controls{
+            width: 120px;
+            margin: 0 auto;
+        }
+    </style>
+     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+     <script type="text/javascript" src="app.js"></script> 
+</body>
+</html>
