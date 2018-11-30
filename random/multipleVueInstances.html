@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Instance</title>
+</head>
+<body>
+    <div id="vue-app-one">
+        {{title}} 
+        <br>
+        {{greet}}
+    </div>
+    <div id="vue-app-two">
+        {{title}}
+        <br>
+        <button v-on:click="changeTitleOne()">Change title one</button>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        var one = new Vue({
+            el:'#vue-app-one',
+            data:{
+                title : "Hello One"
+            },
+            methods:{
+
+            },
+            computed:{
+                greet:function(){
+                    return 'Hello from app one';
+                }
+            }
+        });
+
+        var two = new Vue({
+            el:'#vue-app-two',
+            data:{
+                title: "hello two"
+            },
+            methods:{
+                changeTitleOne: function(){
+                    one.title = "title changed";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
